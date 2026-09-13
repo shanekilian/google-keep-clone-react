@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Outfit", "Arimo", sans-serif;
+}
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content-wrapper {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}

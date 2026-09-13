@@ -1,0 +1,40 @@
+.note-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  width: 600px;
+  border: 1px solid rgb(219, 220, 224);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  margin: 32px 180px 16px 180px;
+}
+.note-input {
+  flex: 1;
+  min-width: 0;
+}
+.note-bar input {
+  border: none;
+  font-size: 16px;
+  width: 100%;
+  background-color: none;
+  padding: 12px 16px;
+}
+.note-input-icons {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px 8px;
+  cursor: pointer;
+}
+.note-input-icons i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.note-input-icons i:hover {
+  background-color: rgb(226, 230, 235);
+  border-radius: 50%;
+}

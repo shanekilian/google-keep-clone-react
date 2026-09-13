@@ -1,8 +1,11 @@
-import React from "react";
+import "./NotesArea.css";
+import NoteInput from "./NoteInput";
 
 function NotesArea({ notes }) {
   return (
     <main>
+      <NoteInput />
+
       {notes.length === 0 && (
         <div className="note-dashboard">
           <i className="material-icons-outlined">lightbulb</i>

@@ -1,0 +1,26 @@
+main {
+  flex: 1;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.note-dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 72px;
+}
+.note-dashboard i {
+  height: 120px;
+  width: 120px;
+  font-size: 120px;
+  margin: 20px;
+  color: rgb(229, 229, 229);
+}
+.note-dashboard span {
+  font-weight: 400;
+  font-size: 22px;
+  color: rgb(95, 99, 104);
+}
