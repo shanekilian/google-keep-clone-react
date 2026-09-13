@@ -3,6 +3,8 @@ import { useState } from "react";
 
 function NoteInput() {
   const [isOpen, setIsOpen] = useState(false);
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
   if (!isOpen) {
     return (
       <div className="note-bar" onClick={() => setIsOpen(true)}>
@@ -20,8 +22,38 @@ function NoteInput() {
 
   return (
     <div className="note-form">
-      <p>it will go here</p>
-      <button onClick={() => setIsOpen(false)}>close</button>
+      <div className="note-form-top">
+        <input
+          type="text"
+          placeholder="Title"
+          className="note-form-title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          autoFocus
+        />
+        <i className="material-icons-outlined">push_pin</i>
+        <div />
+        <textarea
+          placeholder="Take a note..."
+          className="note-form-body"
+          value={body}
+          onChange={(e) => setBody(e.target.value)}
+        />
+      </div>
+      <div className="note-form-toolbar">
+        <div className="note-form-toolbar-left">
+          <i className="material-icons-outlined">format_color_text</i>
+          <i className="material-icons-outlined">palette</i>
+          <i className="material-icons-outlined">notification_add</i>
+          <i className="material-icons-outlined">person_add</i>
+          <i className="material-icons-outlined">image</i>
+          <i className="material-icons-outlined">archive</i>
+          <i className="material-icons-outlined">more_vert</i>
+          <i className="material-icons-outlined">undo</i>
+          <i className="material-icons-outlined">redo</i>
+        </div>
+        <button onClick={() => setIsOpen(false)}>Close</button>
+      </div>
     </div>
   );
 }
