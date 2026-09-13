@@ -1,10 +1,25 @@
 import "./NoteInput.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 function NoteInput() {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handleClickOutside(event) {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isOpen]);
+
   if (!isOpen) {
     return (
       <div className="note-bar" onClick={() => setIsOpen(true)}>
@@ -21,7 +36,7 @@ function NoteInput() {
   }
 
   return (
-    <div className="note-form">
+    <div className="note-form" ref={formRef}>
       <div className="note-form-top">
         <input
           type="text"
@@ -32,14 +47,15 @@ function NoteInput() {
           autoFocus
         />
         <i className="material-icons-outlined">push_pin</i>
-        <div />
-        <textarea
-          placeholder="Take a note..."
-          className="note-form-body"
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        />
       </div>
+
+      <textarea
+        placeholder="Take a note..."
+        className="note-form-body"
+        value={body}
+        onChange={(e) => setBody(e.target.value)}
+      />
+
       <div className="note-form-toolbar">
         <div className="note-form-toolbar-left">
           <i className="material-icons-outlined">format_color_text</i>
@@ -57,4 +73,5 @@ function NoteInput() {
     </div>
   );
 }
+
 export default NoteInput;
