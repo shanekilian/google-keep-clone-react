@@ -1,7 +1,7 @@
 import "./NoteInput.css";
 import { useState, useRef, useEffect } from "react";
 
-function NoteInput() {
+function NoteInput({ addNote }) {
   const [isOpen, setIsOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -22,7 +22,7 @@ function NoteInput() {
 
   if (!isOpen) {
     return (
-      <div className="note-bar" onClick={() => setIsOpen(true)}>
+      <div className="note-bar" key="bar" onClick={() => setIsOpen(true)}>
         <div className="note-input">
           <input type="text" placeholder="Take a note..." readOnly />
         </div>
@@ -36,7 +36,7 @@ function NoteInput() {
   }
 
   return (
-    <div className="note-form" ref={formRef}>
+    <div className="note-form" key="form" ref={formRef}>
       <div className="note-form-top">
         <input
           type="text"
@@ -68,7 +68,14 @@ function NoteInput() {
           <i className="material-icons-outlined">undo</i>
           <i className="material-icons-outlined">redo</i>
         </div>
-        <button onClick={() => setIsOpen(false)}>Close</button>
+        <button
+          onClick={() => {
+            addNote({ title, body });
+            setIsOpen(false);
+          }}
+        >
+          Close
+        </button>
       </div>
     </div>
   );

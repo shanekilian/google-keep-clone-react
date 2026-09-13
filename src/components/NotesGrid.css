@@ -1,0 +1,5 @@
+.notes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 180px;
+}
