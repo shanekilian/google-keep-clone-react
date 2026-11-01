@@ -7,13 +7,19 @@ body {
   font-family: "Outfit", "Arimo", sans-serif;
 }
 html,
-body {
+body,
+#root {
   height: 100vh;
   overflow: hidden;
 }
 body {
   display: flex;
   flex-direction: column;
+}
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 .content-wrapper {
   display: flex;

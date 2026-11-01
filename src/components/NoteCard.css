@@ -1,3 +1,4 @@
+/* Note Card Styles */
 .note-card {
   position: relative;
   width: 240px;
@@ -73,4 +74,27 @@
 .card-pin i:hover {
   background-color: rgb(240, 244, 249);
   border-radius: 50%;
+}
+
+/* Note Card Options Modal Styles */
+
+.options-modal {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  background-color: white;
+  border: 1px solid rgb(219, 220, 224);
+  border-radius: 8px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  padding: 8px 0px;
+  width: 220px;
+  z-index: 10;
+}
+.option-item {
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.option-item:hover {
+  background-color: rgb(240, 244, 249);
 }

@@ -59,3 +59,7 @@ main {
   overflow-y: auto;
   overflow-x: hidden;
 }
+.sidebar-item.active {
+  background-color: rgb(254, 247, 197);
+  border-radius: 0 24px 24px 0;
+}

@@ -1,12 +1,14 @@
-import React from "react";
 import "./Sidebar.css";
 
-export const Sidebar = () => {
+function Sidebar({ activeTab, setActiveTab }) {
   return (
     <aside>
       <nav className="sidebar">
         <div className="sidebar-items">
-          <div className="sidebar-item active" id="notesTab">
+          <div
+            className={`sidebar-item ${activeTab === "notes" ? "active" : ""}`}
+            onClick={() => setActiveTab("notes")}
+          >
             <i className="material-icons-outlined">lightbulb</i>
             <span>Notes</span>
           </div>
@@ -18,7 +20,10 @@ export const Sidebar = () => {
             <i className="material-icons-outlined">edit</i>
             <span>Edit Labels</span>
           </div>
-          <div className="sidebar-item" id="archiveTab">
+          <div
+            className={`sidebar-item ${activeTab === "archive" ? "active" : ""}`}
+            onClick={() => setActiveTab("archive")}
+          >
             <i className="material-icons-outlined">archive</i>
             <span>Archive</span>
           </div>
@@ -33,6 +38,6 @@ export const Sidebar = () => {
       </nav>
     </aside>
   );
-};
+}
 
 export default Sidebar;

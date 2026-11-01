@@ -2,18 +2,40 @@ import "./NotesArea.css";
 import NoteInput from "./NoteInput";
 import NotesGrid from "./NotesGrid";
 
-function NotesArea({ notes, addNote }) {
+function NotesArea({
+  notes,
+  activeTab,
+  addNote,
+  deleteNote,
+  toggleArchive,
+  togglePin,
+}) {
+  const visibleNotes = notes.filter((note) =>
+    activeTab === "archive" ? note.archived : !note.archived,
+  );
+
   return (
     <main>
-      <NoteInput addNote={addNote} />
+      {activeTab === "notes" && <NoteInput addNote={addNote} />}
 
-      {notes.length === 0 ? (
+      {visibleNotes.length === 0 ? (
         <div className="note-dashboard">
-          <i className="material-icons-outlined">lightbulb</i>
-          <span>Notes that you add appear here</span>
+          <i className="material-icons-outlined">
+            {activeTab === "archive" ? "archive" : "lightbulb"}
+          </i>
+          <span>
+            {activeTab === "archive"
+              ? "Your archived notes appear here"
+              : "Notes that you add appear here"}
+          </span>
         </div>
       ) : (
-        <NotesGrid notes={notes} />
+        <NotesGrid
+          notes={visibleNotes}
+          deleteNote={deleteNote}
+          toggleArchive={toggleArchive}
+          togglePin={togglePin}
+        />
       )}
     </main>
   );
