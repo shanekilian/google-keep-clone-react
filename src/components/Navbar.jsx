@@ -2,11 +2,13 @@ import "./Navbar.css";
 import keepLogo from "../assets/google-keep-logo.png";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import { useState } from "react";
 
 export const Navbar = () => {
+  const [searchActive, setSearchActive] = useState(false);
   return (
     <header>
-      <nav className="top-navbar" id="topNavbar">
+      <nav className={`top-navbar ${searchActive ? "search-active" : ""}`}>
         <div className="top-navbar-left" id="topNavbarLeft">
           <Tippy content="Main menu" delay={[200, 0]}>
             <i className="material-icons" title="Main menu">
@@ -29,7 +31,11 @@ export const Navbar = () => {
 
         <div className="top-navbar-centre" id="topNavbarCentre">
           <Tippy content="Search" delay={[200, 0]}>
-            <i className="material-icons" title="Search" id="searchToggleIcon">
+            <i
+              className="material-icons"
+              title="Search"
+              onClick={() => setSearchActive((prev) => !prev)}
+            >
               search
             </i>
           </Tippy>

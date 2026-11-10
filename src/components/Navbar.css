@@ -87,3 +87,32 @@ i {
   background-color: rgb(240, 244, 249);
   border-radius: 50%;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 794px) {
+  .top-navbar-centre {
+    width: auto;
+    margin-left: auto;
+    margin-right: 8px;
+    background-color: transparent;
+    box-shadow: none;
+  }
+  .top-navbar-centre input {
+    display: none;
+  }
+  .top-navbar.search-active .top-navbar-left {
+    display: none;
+  }
+  .top-navbar.search-active .top-navbar-centre {
+    flex: 1;
+    width: auto;
+    margin: 0;
+    background-color: rgb(240, 244, 249);
+    border-radius: 8px;
+    padding: 0 8px;
+  }
+  .top-navbar.search-active .top-navbar-centre input {
+    display: block;
+    flex: 1;
+  }
+}
