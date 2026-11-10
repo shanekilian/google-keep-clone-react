@@ -7,18 +7,27 @@ function NoteInput({ addNote }) {
   const [body, setBody] = useState("");
   const formRef = useRef(null);
 
+  function saveAndClose() {
+    if (title.trim() !== "" || body.trim() !== "") {
+      addNote({ title, body });
+    }
+    setTitle("");
+    setBody("");
+    setIsOpen(false);
+  }
+
   useEffect(() => {
     if (!isOpen) return;
 
     function handleClickOutside(event) {
       if (formRef.current && !formRef.current.contains(event.target)) {
-        setIsOpen(false);
+        saveAndClose();
       }
     }
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isOpen]);
+  }, [isOpen, title, body]);
 
   if (!isOpen) {
     return (
@@ -68,14 +77,7 @@ function NoteInput({ addNote }) {
           <i className="material-icons-outlined">undo</i>
           <i className="material-icons-outlined">redo</i>
         </div>
-        <button
-          onClick={() => {
-            addNote({ title, body });
-            setIsOpen(false);
-          }}
-        >
-          Close
-        </button>
+        <button onClick={saveAndClose}>Close</button>
       </div>
     </div>
   );
