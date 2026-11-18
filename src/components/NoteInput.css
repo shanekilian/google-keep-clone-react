@@ -126,3 +126,16 @@
 .note-form-toolbar button:hover {
   background-color: rgb(240, 244, 249);
 }
+/* Note form's more options styles  */
+.form-more {
+  position: relative;
+}
+.form-more .options-modal {
+  top: 100%;
+  left: 0;
+  right: auto;
+}
+.note-form-toolbar i.menu-open {
+  background-color: rgb(240, 244, 249);
+  border-radius: 50%;
+}

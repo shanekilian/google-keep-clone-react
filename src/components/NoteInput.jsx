@@ -6,6 +6,8 @@ function NoteInput({ addNote }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const formRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const moreRef = useRef(null);
 
   function saveAndClose() {
     if (title.trim() !== "" || body.trim() !== "") {
@@ -14,6 +16,7 @@ function NoteInput({ addNote }) {
     setTitle("");
     setBody("");
     setIsOpen(false);
+    setMenuOpen(false);
   }
 
   useEffect(() => {
@@ -28,6 +31,19 @@ function NoteInput({ addNote }) {
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [isOpen, title, body]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    function handleClickOutside(event) {
+      if (moreRef.current && !moreRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [menuOpen]);
 
   if (!isOpen) {
     return (
@@ -73,7 +89,26 @@ function NoteInput({ addNote }) {
           <i className="material-icons-outlined">person_add</i>
           <i className="material-icons-outlined">image</i>
           <i className="material-icons-outlined">archive</i>
-          <i className="material-icons-outlined">more_vert</i>
+          <div className="form-more" ref={moreRef}>
+            <i
+              className={`material-icons-outlined ${menuOpen ? "menu-open" : ""}`}
+              onClick={() => setMenuOpen((prev) => !prev)}
+            >
+              more_vert
+            </i>
+
+            {menuOpen && (
+              <div className="options-modal">
+                <div className="option-item">Delete note</div>
+                <div className="option-item">Add label</div>
+                <div className="option-item">Add drawing</div>
+                <div className="option-item">Make a copy</div>
+                <div className="option-item">Show tick boxes</div>
+                <div className="option-item">Copy to Google Docs</div>
+                <div className="option-item">Version history</div>
+              </div>
+            )}
+          </div>
           <i className="material-icons-outlined">undo</i>
           <i className="material-icons-outlined">redo</i>
         </div>
