@@ -19,7 +19,7 @@ function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
   }, [menuOpen]);
 
   return (
-    <div className="note-card">
+    <div className={`note-card ${menuOpen ? "menu-open" : ""}`}>
       <div className="card-checkbox">
         <i className="material-icons-outlined">check_circle</i>
       </div>
@@ -41,33 +41,36 @@ function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
         >
           {note.archived ? "unarchive" : "archive"}
         </i>
-        <i
-          className="material-icons-outlined"
-          onClick={() => setMenuOpen((prev) => !prev)}
-        >
-          more_vert
-        </i>
-      </div>
 
-      {menuOpen && (
-        <div className="options-modal" ref={menuRef}>
-          <div
-            className="option-item"
-            onClick={() => {
-              deleteNote(note.id);
-              setMenuOpen(false);
-            }}
+        <div className="card-more" ref={menuRef}>
+          <i
+            className="material-icons-outlined"
+            onClick={() => setMenuOpen((prev) => !prev)}
           >
-            Delete note
-          </div>
-          <div className="option-item">Add label</div>
-          <div className="option-item">Add drawing</div>
-          <div className="option-item">Make a copy</div>
-          <div className="option-item">Show tick boxes</div>
-          <div className="option-item">Copy to Google Docs</div>
-          <div className="option-item">Version history</div>
+            more_vert
+          </i>
+
+          {menuOpen && (
+            <div className="options-modal">
+              <div
+                className="option-item"
+                onClick={() => {
+                  deleteNote(note.id);
+                  setMenuOpen(false);
+                }}
+              >
+                Delete note
+              </div>
+              <div className="option-item">Add label</div>
+              <div className="option-item">Add drawing</div>
+              <div className="option-item">Make a copy</div>
+              <div className="option-item">Show tick boxes</div>
+              <div className="option-item">Copy to Google Docs</div>
+              <div className="option-item">Version history</div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

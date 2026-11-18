@@ -54,7 +54,10 @@
 }
 .note-card:hover .card-checkbox,
 .note-card:hover .card-pin,
-.note-card:hover .card-toolbar {
+.note-card:hover .card-toolbar,
+.note-card.menu-open .card-checkbox,
+.note-card.menu-open .card-pin,
+.note-card.menu-open .card-toolbar {
   opacity: 1;
 }
 .card-toolbar i,
@@ -97,4 +100,11 @@
 }
 .option-item:hover {
   background-color: rgb(240, 244, 249);
+}
+.card-more {
+  position: relative;
+}
+.card-more .options-modal {
+  top: 100%;
+  right: 0;
 }
