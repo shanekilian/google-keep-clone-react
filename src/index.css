@@ -6,3 +6,6 @@
 body {
   font-family: "Outfit", "Arimo", sans-serif;
 }
+.material-icons-outlined {
+  color: rgb(95, 99, 104);
+}
