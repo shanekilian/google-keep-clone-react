@@ -2,10 +2,25 @@ import "./Navbar.css";
 import keepLogo from "../assets/google-keep-logo.png";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export const Navbar = () => {
   const [searchActive, setSearchActive] = useState(false);
+  const searchRef = useRef(null);
+
+  useEffect(() => {
+    if (!searchActive) return;
+
+    function handleClickOutside(event) {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchActive(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [searchActive]);
+
   return (
     <header>
       <nav className={`top-navbar ${searchActive ? "search-active" : ""}`}>
@@ -29,14 +44,14 @@ export const Navbar = () => {
           </Tippy>
         </div>
 
-        <div className="top-navbar-centre" id="topNavbarCentre">
+        <div className="top-navbar-centre" id="topNavbarCentre" ref={searchRef}>
           <Tippy content="Search" delay={[200, 0]}>
             <i
               className="material-icons"
               title="Search"
               onClick={() => setSearchActive((prev) => !prev)}
             >
-              search
+              {searchActive ? "arrow_back" : "search"}
             </i>
           </Tippy>
           <input type="search" placeholder="Search" id="searchInput" />
