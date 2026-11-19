@@ -52,9 +52,15 @@ function NoteInput({ addNote }) {
           <input type="text" placeholder="Take a note..." readOnly />
         </div>
         <div className="note-input-icons">
-          <i className="material-icons-outlined">check_box</i>
-          <i className="material-icons-outlined">brush</i>
-          <i className="material-icons-outlined">image</i>
+          <i className="material-icons-outlined" title="New list">
+            check_box
+          </i>
+          <i className="material-icons-outlined" title="New note with drawing">
+            brush
+          </i>
+          <i className="material-icons-outlined" title="New note with image">
+            image
+          </i>
         </div>
       </div>
     );
@@ -83,15 +89,28 @@ function NoteInput({ addNote }) {
 
       <div className="note-form-toolbar">
         <div className="note-form-toolbar-left">
-          <i className="material-icons-outlined">format_color_text</i>
-          <i className="material-icons-outlined">palette</i>
-          <i className="material-icons-outlined">notification_add</i>
-          <i className="material-icons-outlined">person_add</i>
-          <i className="material-icons-outlined">image</i>
-          <i className="material-icons-outlined">archive</i>
+          <i className="material-icons-outlined" title="Formating options">
+            format_color_text
+          </i>
+          <i className="material-icons-outlined" title="Background options">
+            palette
+          </i>
+          <i className="material-icons-outlined" title="Remind me">
+            notification_add
+          </i>
+          <i className="material-icons-outlined" title="Collaboration">
+            person_add
+          </i>
+          <i className="material-icons-outlined" title="Add image">
+            image
+          </i>
+          <i className="material-icons-outlined" title="Archive">
+            archive
+          </i>
           <div className="form-more" ref={moreRef}>
             <i
               className={`material-icons-outlined ${menuOpen ? "menu-open" : ""}`}
+              title="More"
               onClick={() => setMenuOpen((prev) => !prev)}
             >
               more_vert
@@ -109,8 +128,12 @@ function NoteInput({ addNote }) {
               </div>
             )}
           </div>
-          <i className="material-icons-outlined">undo</i>
-          <i className="material-icons-outlined">redo</i>
+          <i className="material-icons-outlined" title="Undo">
+            undo
+          </i>
+          <i className="material-icons-outlined" title="Redo">
+            redo
+          </i>
         </div>
         <button onClick={saveAndClose}>Close</button>
       </div>
