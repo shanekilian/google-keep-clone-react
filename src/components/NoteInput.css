@@ -139,3 +139,18 @@
   background-color: rgb(240, 244, 249);
   border-radius: 50%;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 1024px) {
+  .note-bar,
+  .note-form {
+    width: 90%;
+    margin: 32px auto 16px auto;
+  }
+}
+@media (max-width: 480px) {
+  .note-bar,
+  .note-form {
+    width: 90%;
+  }
+}
