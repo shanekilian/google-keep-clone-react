@@ -25,7 +25,9 @@
   font-weight: 400;
   color: rgb(60, 64, 67);
   padding: 12px 16px;
+  display: -webkit-box;
   -webkit-line-clamp: 6;
+  line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
