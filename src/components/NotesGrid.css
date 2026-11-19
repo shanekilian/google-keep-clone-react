@@ -3,3 +3,16 @@
   flex-wrap: wrap;
   margin: 0 180px;
 }
+
+/* Mobile Reponsiveness */
+@media (max-width: 1024px) {
+  .notes-grid {
+    margin: 0 40px;
+    justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .notes-grid {
+    margin: 0 10px;
+  }
+}

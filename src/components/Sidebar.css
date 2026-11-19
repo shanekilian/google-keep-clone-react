@@ -63,3 +63,20 @@ main {
   background-color: rgb(254, 247, 197);
   border-radius: 0 24px 24px 0;
 }
+
+/* Mobile responsiveness */
+@media (max-width: 794px) {
+  aside {
+    width: 72px;
+  }
+  .sidebar-item span {
+    display: none;
+  }
+  .sidebar-item {
+    justify-content: center;
+    padding-left: 0px;
+  }
+  .sidebar-footer {
+    display: none;
+  }
+}

@@ -108,3 +108,10 @@
   top: 100%;
   right: 0;
 }
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+  .note-card {
+    width: 90%;
+  }
+}
