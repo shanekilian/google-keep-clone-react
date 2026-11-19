@@ -89,6 +89,11 @@ i {
 }
 
 /* Mobile responsiveness */
+@media (max-width: 1024px) {
+  .top-navbar-centre {
+    width: 50%;
+  }
+}
 @media (max-width: 794px) {
   .top-navbar-centre {
     width: auto;
@@ -114,5 +119,24 @@ i {
   .top-navbar.search-active .top-navbar-centre input {
     display: block;
     flex: 1;
+  }
+}
+@media (max-width: 480px) {
+  .top-navbar-right i[title="Google apps"] {
+    display: none;
+  }
+  .top-navbar-right i[title="Refresh"] {
+    display: none;
+  }
+}
+@media (max-width: 395px) {
+  .top-navbar-right i[title="Settings"] {
+    display: none;
+  }
+  .top-navbar-left {
+    width: auto;
+  }
+  .top-navbar-left span {
+    display: none;
   }
 }
