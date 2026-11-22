@@ -1,0 +1,17 @@
+.note-card.flying-note {
+  position: fixed;
+  margin: 0;
+  z-index: 2000;
+  pointer-events: none;
+  background-color: #fff;
+  box-shadow: 0 10px 28px rgba(60, 64, 67, 0.28);
+  transform-origin: center center;
+}
+
+/* Show the card exactly as it looked while hovered, so it lifts off
+   without its toolbar suddenly disappearing. */
+.note-card.flying-note .card-checkbox,
+.note-card.flying-note .card-pin,
+.note-card.flying-note .card-toolbar {
+  opacity: 1;
+}

@@ -64,6 +64,37 @@ main {
   border-radius: 0 24px 24px 0;
 }
 
+@keyframes sidebar-drop {
+  0% {
+    transform: translateX(0);
+  }
+  18% {
+    transform: translateX(-4px) rotate(-1.5deg);
+  }
+  36% {
+    transform: translateX(4px) rotate(1.5deg);
+  }
+  54% {
+    transform: translateX(-3px) rotate(-1deg);
+  }
+  72% {
+    transform: translateX(2px) rotate(0.6deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.sidebar-item.shake {
+  animation: sidebar-drop 0.36s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sidebar-item.shake {
+    animation: none;
+  }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 794px) {
   aside {

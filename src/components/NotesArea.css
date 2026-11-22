@@ -25,6 +25,45 @@ main {
   color: rgb(95, 99, 104);
 }
 /* Note Area Filter  */
+.notes-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px 196px 0;
+}
+
+.sort-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid rgb(219, 220, 224);
+  background-color: #fff;
+  color: rgb(60, 64, 67);
+  border-radius: 24px;
+  padding: 4px 14px 4px 8px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.sort-button i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 20px;
+}
+
+.sort-button:hover {
+  background-color: rgb(240, 244, 249);
+}
+
+.sort-button:focus-visible {
+  outline: 2px solid rgb(138, 180, 248);
+  outline-offset: 2px;
+}
+
 .notes-section-title {
   font-size: 11px;
   font-weight: 600;
@@ -35,11 +74,17 @@ main {
 }
 
 @media (max-width: 1024px) {
+  .notes-toolbar {
+    margin: 12px 56px 0;
+  }
   .notes-section-title {
     margin: 16px 56px 0px 56px;
   }
 }
 @media (max-width: 480px) {
+  .notes-toolbar {
+    margin: 12px 26px 0;
+  }
   .notes-section-title {
     margin: 16px 26px 0px 26px;
   }

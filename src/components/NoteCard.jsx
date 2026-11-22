@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./NoteCard.css";
 
-function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
+function NoteCard({ note, deleteNote, onArchiveRequest, togglePin }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
 
@@ -18,8 +18,16 @@ function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
 
+  function handleArchiveClick(event) {
+    const card = event.currentTarget.closest("[data-note-id]");
+    onArchiveRequest(note, card.getBoundingClientRect());
+  }
+
   return (
-    <div className={`note-card ${menuOpen ? "menu-open" : ""}`}>
+    <div
+      className={`note-card ${menuOpen ? "menu-open" : ""}`}
+      data-note-id={note.id}
+    >
       <div className="card-checkbox">
         <i className="material-symbols-outlined">check_circle</i>
       </div>
@@ -39,10 +47,7 @@ function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
         <i className="material-symbols-outlined">notification_add</i>
         <i className="material-symbols-outlined">person_add</i>
         <i className="material-symbols-outlined">image</i>
-        <i
-          className="material-symbols-outlined"
-          onClick={() => toggleArchive(note.id)}
-        >
+        <i className="material-symbols-outlined" onClick={handleArchiveClick}>
           {note.archived ? "unarchive" : "archive"}
         </i>
 
