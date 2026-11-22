@@ -24,3 +24,23 @@ main {
   font-size: 22px;
   color: rgb(95, 99, 104);
 }
+/* Note Area Filter  */
+.notes-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgb(95, 99, 104);
+  margin: 16px 196px 0px 196px;
+}
+
+@media (max-width: 1024px) {
+  .notes-section-title {
+    margin: 16px 56px 0px 56px;
+  }
+}
+@media (max-width: 480px) {
+  .notes-section-title {
+    margin: 16px 26px 0px 26px;
+  }
+}

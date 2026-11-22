@@ -34,20 +34,28 @@ function NotesArea({
       ) : (
         <>
           {pinnedNotes.length > 0 && (
-            <NotesGrid
-              notes={pinnedNotes}
-              deleteNote={deleteNote}
-              toggleArchive={toggleArchive}
-              togglePin={togglePin}
-            />
+            <>
+              <h2 className="notes-section-title">Pinned</h2>
+              <NotesGrid
+                notes={pinnedNotes}
+                deleteNote={deleteNote}
+                toggleArchive={toggleArchive}
+                togglePin={togglePin}
+              />
+            </>
           )}
           {otherNotes.length > 0 && (
-            <NotesGrid
-              notes={otherNotes}
-              deleteNote={deleteNote}
-              toggleArchive={toggleArchive}
-              togglePin={togglePin}
-            />
+            <>
+              {pinnedNotes.length > 0 && (
+                <h2 className="notes-section-title">Others</h2>
+              )}
+              <NotesGrid
+                notes={otherNotes}
+                deleteNote={deleteNote}
+                toggleArchive={toggleArchive}
+                togglePin={togglePin}
+              />
+            </>
           )}
         </>
       )}
