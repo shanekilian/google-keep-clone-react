@@ -23,7 +23,11 @@ function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
       <div className="card-checkbox">
         <i className="material-symbols-outlined">check_circle</i>
       </div>
-      <div className="card-pin" onClick={() => togglePin(note.id)}>
+
+      <div
+        className={`card-pin ${note.pinned ? "pinned" : ""}`}
+        onClick={() => togglePin(note.id)}
+      >
         <i className="material-symbols-outlined">push_pin</i>
       </div>
 
