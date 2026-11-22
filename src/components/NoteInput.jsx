@@ -78,7 +78,6 @@ function NoteInput({ addNote }) {
           className="note-form-title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          autoFocus
         />
         <i className="material-symbols-outlined">push_pin</i>
       </div>
@@ -88,6 +87,7 @@ function NoteInput({ addNote }) {
         className="note-form-body"
         value={body}
         onChange={(e) => setBody(e.target.value)}
+        autoFocus
       />
 
       <div className="note-form-toolbar">
