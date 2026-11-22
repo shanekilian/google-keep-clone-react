@@ -13,6 +13,8 @@ function NotesArea({
   const visibleNotes = notes.filter((note) =>
     activeTab === "archive" ? note.archived : !note.archived,
   );
+  const pinnedNotes = visibleNotes.filter((note) => note.pinned);
+  const otherNotes = visibleNotes.filter((note) => !note.pinned);
 
   return (
     <main>
@@ -30,12 +32,24 @@ function NotesArea({
           </span>
         </div>
       ) : (
-        <NotesGrid
-          notes={visibleNotes}
-          deleteNote={deleteNote}
-          toggleArchive={toggleArchive}
-          togglePin={togglePin}
-        />
+        <>
+          {pinnedNotes.length > 0 && (
+            <NotesGrid
+              notes={pinnedNotes}
+              deleteNote={deleteNote}
+              toggleArchive={toggleArchive}
+              togglePin={togglePin}
+            />
+          )}
+          {otherNotes.length > 0 && (
+            <NotesGrid
+              notes={otherNotes}
+              deleteNote={deleteNote}
+              toggleArchive={toggleArchive}
+              togglePin={togglePin}
+            />
+          )}
+        </>
       )}
     </main>
   );
