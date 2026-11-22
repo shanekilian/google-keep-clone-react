@@ -21,22 +21,22 @@ function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
   return (
     <div className={`note-card ${menuOpen ? "menu-open" : ""}`}>
       <div className="card-checkbox">
-        <i className="material-icons-outlined">check_circle</i>
+        <i className="material-symbols-outlined">check_circle</i>
       </div>
       <div className="card-pin" onClick={() => togglePin(note.id)}>
-        <i className="material-icons-outlined">push_pin</i>
+        <i className="material-symbols-outlined">push_pin</i>
       </div>
 
       <h3>{note.title}</h3>
       <p>{note.body}</p>
 
       <div className="card-toolbar">
-        <i className="material-icons-outlined">palette</i>
-        <i className="material-icons-outlined">notification_add</i>
-        <i className="material-icons-outlined">person_add</i>
-        <i className="material-icons-outlined">image</i>
+        <i className="material-symbols-outlined">palette</i>
+        <i className="material-symbols-outlined">notification_add</i>
+        <i className="material-symbols-outlined">person_add</i>
+        <i className="material-symbols-outlined">image</i>
         <i
-          className="material-icons-outlined"
+          className="material-symbols-outlined"
           onClick={() => toggleArchive(note.id)}
         >
           {note.archived ? "unarchive" : "archive"}
@@ -44,7 +44,7 @@ function NoteCard({ note, deleteNote, toggleArchive, togglePin }) {
 
         <div className="card-more" ref={menuRef}>
           <i
-            className="material-icons-outlined"
+            className="material-symbols-outlined"
             onClick={() => setMenuOpen((prev) => !prev)}
           >
             more_vert

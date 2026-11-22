@@ -20,7 +20,7 @@ function NotesArea({
 
       {visibleNotes.length === 0 ? (
         <div className="note-dashboard">
-          <i className="material-icons-outlined">
+          <i className="material-symbols-outlined">
             {activeTab === "archive" ? "archive" : "lightbulb"}
           </i>
           <span>

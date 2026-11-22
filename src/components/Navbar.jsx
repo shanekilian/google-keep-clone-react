@@ -26,7 +26,7 @@ export const Navbar = () => {
       <nav className={`top-navbar ${searchActive ? "search-active" : ""}`}>
         <div className="top-navbar-left" id="topNavbarLeft">
           <Tippy content="Main menu" delay={[200, 0]}>
-            <i className="material-icons" title="Main menu">
+            <i className="material-symbols-outlined" title="Main menu">
               menu
             </i>
           </Tippy>
@@ -47,7 +47,7 @@ export const Navbar = () => {
         <div className="top-navbar-centre" id="topNavbarCentre" ref={searchRef}>
           <Tippy content="Search" delay={[200, 0]}>
             <i
-              className="material-icons"
+              className="material-symbols-outlined"
               title="Search"
               onClick={() => setSearchActive((prev) => !prev)}
             >
@@ -59,27 +59,27 @@ export const Navbar = () => {
 
         <div className="top-navbar-right">
           <Tippy content="Refresh" delay={[200, 0]}>
-            <i className="material-icons-outlined" title="Refresh">
+            <i className="material-symbols-outlined" title="Refresh">
               refresh
             </i>
           </Tippy>
           <Tippy content="List View" delay={[200, 0]}>
-            <i className="material-icons-outlined" title="List View">
+            <i className="material-symbols-outlined" title="List View">
               view_agenda
             </i>
           </Tippy>
           <Tippy content="Settings" delay={[200, 0]}>
-            <i className="material-icons-outlined" title="Settings">
+            <i className="material-symbols-outlined" title="Settings">
               settings
             </i>
           </Tippy>
           <Tippy content="Google Apps" delay={[200, 0]}>
-            <i className="material-icons-outlined" title="Google Apps">
+            <i className="material-symbols-outlined" title="Google Apps">
               apps
             </i>
           </Tippy>
           <Tippy content="Google Account" delay={[200, 0]}>
-            <i className="material-icons-outlined" title="Google Account">
+            <i className="material-symbols-outlined" title="Google Account">
               account_circle
             </i>
           </Tippy>

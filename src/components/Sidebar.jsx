@@ -9,26 +9,26 @@ function Sidebar({ activeTab, setActiveTab }) {
             className={`sidebar-item ${activeTab === "notes" ? "active" : ""}`}
             onClick={() => setActiveTab("notes")}
           >
-            <i className="material-icons-outlined">lightbulb</i>
+            <i className="material-symbols-outlined">lightbulb_2</i>
             <span>Notes</span>
           </div>
           <div className="sidebar-item">
-            <i className="material-icons-outlined">add_alert</i>
+            <i className="material-symbols-outlined">add_alert</i>
             <span>Reminder</span>
           </div>
           <div className="sidebar-item">
-            <i className="material-icons-outlined">edit</i>
+            <i className="material-symbols-outlined">edit</i>
             <span>Edit Labels</span>
           </div>
           <div
             className={`sidebar-item ${activeTab === "archive" ? "active" : ""}`}
             onClick={() => setActiveTab("archive")}
           >
-            <i className="material-icons-outlined">archive</i>
+            <i className="material-symbols-outlined">archive</i>
             <span>Archive</span>
           </div>
           <div className="sidebar-item">
-            <i className="material-icons-outlined">delete</i>
+            <i className="material-symbols-outlined">delete</i>
             <span>Bin</span>
           </div>
         </div>

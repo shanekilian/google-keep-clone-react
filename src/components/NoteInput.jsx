@@ -52,13 +52,16 @@ function NoteInput({ addNote }) {
           <input type="text" placeholder="Take a note..." readOnly />
         </div>
         <div className="note-input-icons">
-          <i className="material-icons-outlined" title="New list">
+          <i className="material-symbols-outlined" title="New list">
             check_box
           </i>
-          <i className="material-icons-outlined" title="New note with drawing">
-            brush
+          <i
+            className="material-symbols-outlined"
+            title="New note with drawing"
+          >
+            draw
           </i>
-          <i className="material-icons-outlined" title="New note with image">
+          <i className="material-symbols-outlined" title="New note with image">
             image
           </i>
         </div>
@@ -77,7 +80,7 @@ function NoteInput({ addNote }) {
           onChange={(e) => setTitle(e.target.value)}
           autoFocus
         />
-        <i className="material-icons-outlined">push_pin</i>
+        <i className="material-symbols-outlined">push_pin</i>
       </div>
 
       <textarea
@@ -89,27 +92,27 @@ function NoteInput({ addNote }) {
 
       <div className="note-form-toolbar">
         <div className="note-form-toolbar-left">
-          <i className="material-icons-outlined" title="Formating options">
+          <i className="material-symbols-outlined" title="Formating options">
             format_color_text
           </i>
-          <i className="material-icons-outlined" title="Background options">
+          <i className="material-symbols-outlined" title="Background options">
             palette
           </i>
-          <i className="material-icons-outlined" title="Remind me">
+          <i className="material-symbols-outlined" title="Remind me">
             notification_add
           </i>
-          <i className="material-icons-outlined" title="Collaboration">
+          <i className="material-symbols-outlined" title="Collaboration">
             person_add
           </i>
-          <i className="material-icons-outlined" title="Add image">
+          <i className="material-symbols-outlined" title="Add image">
             image
           </i>
-          <i className="material-icons-outlined" title="Archive">
+          <i className="material-symbols-outlined" title="Archive">
             archive
           </i>
           <div className="form-more" ref={moreRef}>
             <i
-              className={`material-icons-outlined ${menuOpen ? "menu-open" : ""}`}
+              className={`material-symbols-outlined ${menuOpen ? "menu-open" : ""}`}
               title="More"
               onClick={() => setMenuOpen((prev) => !prev)}
             >
@@ -128,10 +131,10 @@ function NoteInput({ addNote }) {
               </div>
             )}
           </div>
-          <i className="material-icons-outlined" title="Undo">
+          <i className="material-symbols-outlined" title="Undo">
             undo
           </i>
-          <i className="material-icons-outlined" title="Redo">
+          <i className="material-symbols-outlined" title="Redo">
             redo
           </i>
         </div>
