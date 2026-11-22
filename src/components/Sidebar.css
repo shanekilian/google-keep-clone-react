@@ -13,7 +13,7 @@ aside {
   height: 100%;
 }
 .sidebar {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   z-index: 20;
@@ -23,6 +23,21 @@ aside {
   height: 100%;
   overflow: hidden;
   background-color: #fff;
+  transition:
+    width 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.sidebar.expanded {
+  width: 280px;
+  box-shadow:
+    0 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+.sidebar.expanded .sidebar-item span {
+  opacity: 1;
+}
+.sidebar.expanded .sidebar-footer {
+  opacity: 1;
 }
 .sidebar-items {
   display: flex;
@@ -33,6 +48,7 @@ aside {
   padding: 16px;
   white-space: nowrap;
   opacity: 0;
+  transition: opacity 0.2s ease;
 }
 .sidebar-footer span {
   font-size: 12px;
@@ -57,6 +73,7 @@ aside {
   font-weight: 500;
   white-space: nowrap;
   opacity: 0;
+  transition: opacity 0.2s ease;
 }
 .sidebar-item i {
   display: flex;
