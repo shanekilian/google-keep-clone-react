@@ -10,18 +10,12 @@ function prefersReducedMotion() {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-function compareTitles(a, b) {
-  return (a.title || "").localeCompare(b.title || "", undefined, {
-    sensitivity: "base",
-    numeric: true,
-  });
-}
-
 function App() {
   const [notes, setNotes] = useState([]);
   const [activeTab, setActiveTab] = useState("notes");
   const [flights, setFlights] = useState([]);
   const [shake, setShake] = useState(null);
+  const [sortAZ, setSortAZ] = useState(false);
   const flipSnapshot = useRef(null);
   const finishedFlights = useRef(new Set());
 
@@ -73,10 +67,10 @@ function App() {
           { transform: `translate(${dx}px, ${dy}px)`, zIndex: 3 },
           { transform: "translate(0px, 0px)", zIndex: 3 },
         ],
-        { duration: 300, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)" },
+        { duration: 550, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)" },
       );
     });
-  }, [notes, flights]);
+  }, [notes, flights, sortAZ]);
 
   function addNote(note) {
     capturePositions();
@@ -100,25 +94,9 @@ function App() {
     );
   }
 
-  function sortNotesByTitle() {
+  function toggleSort() {
     capturePositions();
-    setNotes((prevNotes) => {
-      const inView = (note) =>
-        activeTab === "archive" ? note.archived : !note.archived;
-      const pinned = [];
-      const others = [];
-      const rest = [];
-
-      for (const note of prevNotes) {
-        if (!inView(note)) rest.push(note);
-        else if (note.pinned) pinned.push(note);
-        else others.push(note);
-      }
-
-      pinned.sort(compareTitles);
-      others.sort(compareTitles);
-      return [...rest, ...pinned, ...others];
-    });
+    setSortAZ((prev) => !prev);
   }
 
   function beginArchiveToggle(note, rect) {
@@ -185,7 +163,8 @@ function App() {
           addNote={addNote}
           deleteNote={deleteNote}
           togglePin={togglePin}
-          sortNotesByTitle={sortNotesByTitle}
+          sortAZ={sortAZ}
+          onToggleSort={toggleSort}
           onArchiveRequest={beginArchiveToggle}
           hiddenIds={hiddenIds}
         />

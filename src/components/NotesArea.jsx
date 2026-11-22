@@ -2,13 +2,21 @@ import "./NotesArea.css";
 import NoteInput from "./NoteInput";
 import NotesGrid from "./NotesGrid";
 
+function compareTitles(a, b) {
+  return (a.title || "").localeCompare(b.title || "", undefined, {
+    sensitivity: "base",
+    numeric: true,
+  });
+}
+
 function NotesArea({
   notes,
   activeTab,
   addNote,
   deleteNote,
   togglePin,
-  sortNotesByTitle,
+  sortAZ,
+  onToggleSort,
   onArchiveRequest,
   hiddenIds,
 }) {
@@ -17,8 +25,9 @@ function NotesArea({
     if (hidden.has(note.id)) return false;
     return activeTab === "archive" ? note.archived : !note.archived;
   });
-  const pinnedNotes = visibleNotes.filter((note) => note.pinned);
-  const otherNotes = visibleNotes.filter((note) => !note.pinned);
+  const arrange = (list) => (sortAZ ? [...list].sort(compareTitles) : list);
+  const pinnedNotes = arrange(visibleNotes.filter((note) => note.pinned));
+  const otherNotes = arrange(visibleNotes.filter((note) => !note.pinned));
   const isDeparting = hiddenIds.length > 0;
 
   return (
@@ -29,8 +38,9 @@ function NotesArea({
         <div className="notes-toolbar">
           <button
             type="button"
-            className="sort-button"
-            onClick={sortNotesByTitle}
+            className={`sort-button ${sortAZ ? "active" : ""}`}
+            aria-pressed={sortAZ}
+            onClick={onToggleSort}
           >
             <i className="material-symbols-outlined">sort_by_alpha</i>
             <span>Sort A–Z</span>
