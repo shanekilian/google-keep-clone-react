@@ -9,7 +9,7 @@
 }
 
 /* Show the card exactly as it looked while hovered, so it lifts off
-   without its toolbar suddenly disappearing. */
+   without its toolbar suddenly disappearing. CURSOR'S INPUT AS PER ASSIGNMENT */
 .note-card.flying-note .card-checkbox,
 .note-card.flying-note .card-pin,
 .note-card.flying-note .card-toolbar {
