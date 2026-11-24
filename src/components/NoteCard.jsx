@@ -1,9 +1,28 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useLayoutEffect } from "react";
 import "./NoteCard.css";
+
+const ROW_UNIT = 1;
+const GAP = 8;
 
 function NoteCard({ note, deleteNote, onArchiveRequest, togglePin }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const cardRef = useRef(null);
+
+  useLayoutEffect(() => {
+    const card = cardRef.current;
+    if (!card) return;
+
+    function updateSpan() {
+      const height = card.getBoundingClientRect().height;
+      card.style.gridRowEnd = `span ${Math.ceil((height + GAP) / ROW_UNIT)}`;
+    }
+
+    updateSpan();
+    const observer = new ResizeObserver(updateSpan);
+    observer.observe(card);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -25,6 +44,7 @@ function NoteCard({ note, deleteNote, onArchiveRequest, togglePin }) {
 
   return (
     <div
+      ref={cardRef}
       className={`note-card ${menuOpen ? "menu-open" : ""}`}
       data-note-id={note.id}
     >

@@ -1,10 +1,9 @@
 /* Note Card Styles */
 .note-card {
   position: relative;
-  width: 240px;
+  align-self: start;
   border: 1px solid rgb(219, 220, 224);
   border-radius: 8px;
-  margin: 16px;
 }
 .note-card:hover {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);

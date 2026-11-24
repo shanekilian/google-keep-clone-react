@@ -1,18 +1,7 @@
 .notes-grid {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 180px;
-}
-
-/* Mobile Reponsiveness */
-@media (max-width: 1024px) {
-  .notes-grid {
-    margin: 0 40px;
-    justify-content: center;
-  }
-}
-@media (max-width: 480px) {
-  .notes-grid {
-    margin: 0 10px;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 240px);
+  grid-auto-rows: 1px;
+  column-gap: 8px;
+  justify-content: center;
 }
