@@ -5,3 +5,10 @@
   column-gap: 8px;
   justify-content: center;
 }
+
+/* Mobile Responisveness */
+@media (max-width: 480px) {
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+}

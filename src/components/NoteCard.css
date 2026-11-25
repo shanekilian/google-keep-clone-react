@@ -115,10 +115,3 @@
 .card-pin.pinned i {
   color: rgb(32, 33, 36);
 }
-
-/* Mobile Responsiveness */
-@media (max-width: 480px) {
-  .note-card {
-    width: 90%;
-  }
-}
