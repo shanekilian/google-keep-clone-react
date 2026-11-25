@@ -140,14 +140,14 @@ main {
   aside {
     width: 72px;
   }
-  .sidebar-item span {
+  .sidebar:not(.expanded) .sidebar-item span {
     display: none;
   }
-  .sidebar-item {
+  .sidebar:not(.expanded) .sidebar-item {
     justify-content: center;
-    padding-left: 0px;
+    padding-left: 0;
   }
-  .sidebar-footer {
+  .sidebar:not(.expanded) .sidebar-footer {
     display: none;
   }
 }
