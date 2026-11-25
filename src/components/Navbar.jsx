@@ -4,7 +4,7 @@ import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import { useState, useRef, useEffect } from "react";
 
-export const Navbar = () => {
+export const Navbar = ({ onMenuClick }) => {
   const [searchActive, setSearchActive] = useState(false);
   const searchRef = useRef(null);
 
@@ -26,7 +26,11 @@ export const Navbar = () => {
       <nav className={`top-navbar ${searchActive ? "search-active" : ""}`}>
         <div className="top-navbar-left" id="topNavbarLeft">
           <Tippy content="Main menu" delay={[200, 0]}>
-            <i className="material-symbols-outlined" title="Main menu">
+            <i
+              className="material-symbols-outlined"
+              title="Main menu"
+              onClick={onMenuClick}
+            >
               menu
             </i>
           </Tippy>

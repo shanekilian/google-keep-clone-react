@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./Sidebar.css";
 
-function Sidebar({ activeTab, setActiveTab, shake }) {
+function Sidebar({ activeTab, setActiveTab, shake, mobileOpen }) {
   const [hovered, setHovered] = useState(false);
   useEffect(() => {
     if (!shake) return;
@@ -18,7 +18,7 @@ function Sidebar({ activeTab, setActiveTab, shake }) {
   return (
     <aside>
       <nav
-        className={`sidebar ${hovered ? "expanded" : ""}`}
+        className={`sidebar ${hovered ? "expanded" : ""} ${mobileOpen ? "mobile-open" : ""}`}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >

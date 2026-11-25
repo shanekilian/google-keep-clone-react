@@ -16,6 +16,7 @@ function App() {
   const [flights, setFlights] = useState([]);
   const [shake, setShake] = useState(null);
   const [sortAZ, setSortAZ] = useState(false);
+  const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
   const flipSnapshot = useRef(null);
   const finishedFlights = useRef(new Set());
 
@@ -150,12 +151,13 @@ function App() {
 
   return (
     <div className="app">
-      <Navbar />
+      <Navbar onMenuClick={() => setMobileSidebarOpen((prev) => !prev)} />
       <div className="content-wrapper">
         <Sidebar
           activeTab={activeTab}
           setActiveTab={setActiveTab}
           shake={shake}
+          mobileOpen={mobileSidebarOpen}
         />
         <NotesArea
           notes={notes}
